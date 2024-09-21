@@ -1,0 +1,24 @@
+.mybox{
+    background-color: aliceblue;	/* 背景色 */
+    border: 2px solid 
+  #1920a6f8;	/* 線の太さ・種類・色 */
+    border-radius: 5px;
+    margin: 80px 80px 80px 80px;	/* 外側の余白 上・右・左・下 */
+    padding: 25px 20px 10px 20px;	/* 内側の余白 上・右・左・下 */
+    position: relative;
+  }
+  .mybox:before{
+    background-color: 
+  #1920a644;	/* 吹き出し背景色 */
+    border-radius: 5px;
+    color: 
+  #fff;	/* 吹き出し文字色 */
+    content: 'MY PAGE';
+    padding: 5px 20px;
+    position: absolute;
+    left: -10px;
+    top: -20px;
+  }
+  
+  
+  

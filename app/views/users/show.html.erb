@@ -1,0 +1,32 @@
+<div class="mybox2">
+ 
+
+
+<p><h6><span class="marker">名前</span></h6>  <%= @user.name %></p><br>
+<p><h6><span class="marker">メールアドレス</span></h6>  <%= @user.email %></p><br>
+<p><h6><span class="marker">プロフィール</span></h6> <%= @user.profile %></p><br>
+<p><h6><span class="marker">Toeic点数</span></h6>  <%= @user.mark %></p><br>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
+
+
+<h6><span class="marker">ユーザーの投稿一覧</span></h6>
+<br><% @user.geektoeics.each do |t| %>
+  <%= t.user.name %><br>
+  <%= t.comment %><br>
+<% end %><br>
+
+
+<h6><span class="marker">ユーザーがいいねした投稿一覧</span></h6>
+<br><% @user.liked_geektoeics.each do |t| %>
+  <%= t.user.name %><br>
+  <%= t.comment %><br>
+<% end %><br>
+
+
+
+<br><%= link_to "一覧に戻る", geektoeics_path %>
+</div>

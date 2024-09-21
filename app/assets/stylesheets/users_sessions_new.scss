@@ -1,0 +1,77 @@
+.blank1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:aliceblue
+}
+
+.blank2{
+    text-align: center;
+    width: 50%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background: #d3def1;
+    border-radius: 9px;
+    margin: 20px 5px;
+    padding: 20px 40px;
+    box-shadow: 2px 2px 2px 2px #696969;
+   
+}
+
+.blank2 a{
+    color:#ffffff;
+}
+    
+    
+    
+    
+    
+.field label {
+font-weight: 100;
+font-size: 15px;
+}
+
+
+
+
+
+
+.field input[type="email"] {
+border-style: none;
+width: 200px;
+height: 30px;
+background: #ffffff;
+border-radius: 10px;
+border: 1px #060339 solid;
+}
+
+
+.field input[type="password"] {
+border-style: none;
+width: 200px;
+height: 30px;
+background: #ffffff;
+border-radius: 10px;
+border: 1px #060339 solid;
+}
+
+
+
+
+.actions input[type="submit"] {
+border-style: none;
+width: 150px;
+height: 30px;
+background: #d2cdcd;
+border-radius: 10px;
+border: 1px #060339 solid;
+}
+
+
+.actions input[type="submit"]:hover {
+cursor: pointer;
+background: linear-gradient(to bottom,#1c94ea,#5ba2f4f3);
+}
+    
+    
+    

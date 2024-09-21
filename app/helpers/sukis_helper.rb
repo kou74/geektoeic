@@ -1,0 +1,2 @@
+module SukisHelper
+end

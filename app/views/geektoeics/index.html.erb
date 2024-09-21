@@ -1,0 +1,136 @@
+<div>
+  <img class="top-img" src="https://hirashimakeisuke.com/wp-content/uploads/2017/09/f53c0038d070f912b37219451b32b38d_m.jpg" width=100% height="600px" alt="kou" >
+  <h4>Toeicの点数上げたくないですか？</h4>
+</div>
+
+<div class="dog">
+  geektoeicは<br>年間約２３０万人が受験するTOEICの情報共有のためのサイトです<br>みんなでscore upを目指しましょう! 
+</div>
+
+<div class="cat">
+  <%= link_to '一覧ページ', "#list",class:"cat1" %>
+  <% if user_signed_in? %>
+<%= link_to "新規投稿", new_geektoeic_path,class:"cat1" %>
+<%= link_to "マイページ", user_path(current_user.id) ,class:"cat1"%>
+<% end %>
+</div>
+
+
+
+<table>
+    <tr>
+        <td>
+            <a href="https://www.iibc-global.org/toeic.html" class="rabit" >
+                <div>
+                    <%= image_tag "toeic.jpeg",size:"650x400"%> 
+                </div>
+            </a>
+        </td>
+    </tr>
+</table>
+
+</div>  
+
+
+<div class="btn btn02">
+	<a href="https://www.amazon.co.jp/gp/bestsellers/books/541934">Amazon TOEIC参考書</a>
+</div>
+
+<div class="btn btn03">
+	<a href="https://search.rakuten.co.jp/search/mall/TOEIC/">楽天市場 TOEIC参考書</a>
+</div>
+
+
+<h3 id="list">一覧ページ</h3>
+
+
+<div class="geektoeics-container">
+
+
+    <h3>投稿を検索</h3>
+    <%= form_tag({controller:"geektoeics",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+    <% end %>
+    
+    
+    
+    
+    
+    <% @geektoeics.each do |t| %>
+    <%= link_to t.user.name, user_path(t.user.id) %>
+    
+        <div class="geektoeic">
+        
+        <div class="main-box">
+            </div>
+            <div class="left-container">
+            </div>
+            <div class="right-container">  
+            </div>
+    
+        <%= t.comment %></div>
+    
+    
+    <% if t.picture.attached? %>
+            <%= image_tag t.picture, size: '250x300'%>
+        <% end %>
+    
+        <div class="geektoeic">
+    
+            <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+        <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+            <%= link_to geektoeic_like_path(id: t.id, geektoeic_id: t.id), method: :delete do %>
+                  <p>いいねを取り消す</p><%= t.likes.count %>
+              <% end %>
+          <% else %>
+              <%= link_to geektoeic_likes_path(id: t.id, geektoeic_id: t.id), method: :post do %>
+                  <p>いいね</p><%= t.likes.count %>
+              <% end %>
+          <% end %>
+      <% else %>
+          <p>いいねの数 = </p><%= t.likes.count %>
+      <% end %>
+
+     
+    
+    
+     
+    
+         <%= t.created_at %>
+          <%= link_to "詳細", geektoeic_path(t.id) %> 
+           <%= link_to "編集", edit_geektoeic_path(t.id) %>
+            <%= button_to "削除", geektoeic_path(t.id), method: :delete %>
+            
+        </div>
+<% end %>
+</div>
+
+
+<div class=monky>
+    <%= page_entries_info @geektoeics %>
+    <%= paginate @geektoeics%>
+</div>
+    
+    
+    
+    
+
+
+
+
+
+
+
+
